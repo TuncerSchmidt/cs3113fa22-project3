@@ -31,10 +31,12 @@ int checkForAlloc(int num3, int num2){
 	int num1 = num3;
 //	num1 = 0;
 	//int checker = 0;
-	for(int m =num1; m< numSpace; m++){
+	int m;
+	for(m =num1; m< numSpace; m++){
 		num1 = num1+1;
 		//printf("%s %d %s","--", m, "--");
 		if(space[m] ==0){
+//		printf("%s%d%s","<", Sayitutucu, ">"); 
 			num2 = num2 + 1;
 		  //num1 = num1 + 1;
 		     	if(m+1 < numSpace){
@@ -51,7 +53,7 @@ int checkForAlloc(int num3, int num2){
 				printf("%s\n", "DEADLOCK DETECTED");
 				break;	
 				}
-				printf("%s %s %d\n", "FAIL REQUEST", NameTutucu, Sayitutucu); 
+				printf("%s %s %d\n", "FAIL REQUEST",  NameTutucu, Sayitutucu); 
 				break;
 			}
 		}}		
@@ -59,8 +61,9 @@ int checkForAlloc(int num3, int num2){
 				//	printf("%s %d %d %d %s", "=>", Sayitutucu, num1, num2,  "<=");
 					//num1 = num1-1;
 					int start = num1-num2;
+					
 					for(int k =  start; k< num1; k++){
-				// 		printf("%s %d %s","=>",num2, "<=");
+					//	printf("%s %d %s","=>",num1, "<=");
 						space[k] = 1;
                                                 
 					} 
@@ -76,16 +79,18 @@ int checkForAlloc(int num3, int num2){
 					printf("%s %s %d\n", disks[start].processMethod, disks[start].processName, disks[start].addressNo);	
 					//num1 = num1-1;
 					
+					num2= 0;
 				}else{
 					num2 = 0;
 					//printf("%s", "buradayim");
 					checkForAlloc(num1, num2);
 
-				}	
+				}		
 		       
 	
 	
 	if(checker == 0){
+		
 		printf("%s %s %d\n", "FAIL REQUEST", NameTutucu, Sayitutucu);
 	}
 	return 0;
@@ -96,7 +101,8 @@ int checkForFree(){
 		if(strcmp(disks[i].processName, NameTutucu)==0){
 			strcpy(disks[i].processName, "saldik");
 			for(int k = disks[i].addressNo; k<disks[i].addressNo+disks[i].sizeProcess; k++){
-				space[i] = 0;
+				space[k] = 0;
+				//printf("%s%d%s","<", i,">");
 			}
 			checker = 1;
 			printf("%s %s %d %d\n", "FREE", NameTutucu, disks[i].sizeProcess, disks[i].addressNo);
@@ -188,17 +194,18 @@ int FINDA(){
 		
 	//}
 
-	fgets(line, 50, a[1]);
+	//fgets(line, 50, a[1]);
 	int sayac = 0;
 	int sirasayac = 0;
 	if(strcmp(modelName, "FIRSTFIT")==0) {
-	   while(processCounter < numProcess){
-		   for(int i=0; i< numProcess; i++){
-		   
-		   for(int k = 0; k<numQuantum; k++){
-		if(fgets(line, 50, a[i])== NULL){ 
-			fclose(a[i]);
-			processCounter = processCounter + 1;
+		while(1){
+	   //while(processCounter < numProcess){
+	//	   for(int i=0; i< numProcess; i++){
+	//	   
+	//	   for(int k = 0; k<numQuantum; k++){
+		if(fgets(line, 50, a[0])== NULL){ 
+			//fclose(a[i]);
+			//processCounter = processCounter + 1;
 			break; 
 		};
 		char tempMethod[50];
@@ -225,13 +232,13 @@ int FINDA(){
 	 }else if(strcmp(tempName, "ASSIGNED")==0){
 	 	ListAssigned();
 		//printf("%s", "buradyim");
-	 }else{
+	 }else if(strcmp(tempName, "FIND")==0){
 	 	FINDA();
 	 }
 	   }
 		   }
-	 }
-	}
+	 //}
+	//}
 	return 0;
 }
 
