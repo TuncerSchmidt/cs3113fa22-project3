@@ -203,7 +203,7 @@ int FINDA(){
 	//	   for(int i=0; i< numProcess; i++){
 	//	   
 	//	   for(int k = 0; k<numQuantum; k++){
-		if(fgets(line, 50, a[0])== NULL){ 
+		if(fgets(line, 50, a[1])== NULL){ 
 			//fclose(a[i]);
 			//processCounter = processCounter + 1;
 			break; 
