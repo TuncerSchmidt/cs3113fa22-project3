@@ -47,8 +47,11 @@ int checkForAlloc(int num3, int num2){
 
 			}else{
 				redFlag = redFlag + 1;
-				printf("%s", "DEADLOCK");
-				return 3;
+				if(redFlag == 2){
+				printf("%s\n", "DEADLOCK DETECTED");
+				break;	
+				}
+				printf("%s %s %d\n", "FAIL REQUEST", NameTutucu, Sayitutucu); 
 				break;
 			}
 		}}		
@@ -172,15 +175,12 @@ int FINDA(){
 	char line[50];
 
 	FILE *a[8];
-	int i = 0;
-	for(i =0; i<8; i++){
+	
+	for(int i =0; i<8; i++){
 		char filename[100];
 		//printf("%s", "buradayim");
 		sprintf(filename, "%d.ins", i);
 		a[i] = fopen(filename, "r");
-	}
-	for(i = 0; i<8; i++){
-		//fprintf(a[i]);
 	}
 	
 	int processCounter = 0;
@@ -192,8 +192,15 @@ int FINDA(){
 	int sayac = 0;
 	int sirasayac = 0;
 	if(strcmp(modelName, "FIRSTFIT")==0) {
-	   while(1){
-		if(fgets(line, 50, a[1])== NULL) break;
+	   while(processCounter < numProcess){
+		   for(int i=0; i< numProcess; i++){
+		   
+		   for(int k = 0; k<numQuantum; k++){
+		if(fgets(line, 50, a[i])== NULL){ 
+			fclose(a[i]);
+			processCounter = processCounter + 1;
+			break; 
+		};
 		char tempMethod[50];
 		char tempName[50];
 		int tempSize = 0;
@@ -221,6 +228,8 @@ int FINDA(){
 	 }else{
 	 	FINDA();
 	 }
+	   }
+		   }
 	 }
 	}
 	return 0;
