@@ -160,14 +160,40 @@ int FINDA(){
 	}
 	return 0;
 }
-	FILE *ptr = fopen("1.ins", "r");
+	//FILE *ptr = fopen("0.ins", "r");
+	//FILE *ptr1 = fopen("1.ins", "r");
+	//FILE *ptr2 = fopen("2.ins", "r");
+	//FILE *ptr3 = fopen("3.ins", "r");
+	//FILE *ptr4 = fopen("4.ins", "r");
+	//FILE *ptr5 = fopen("5.ins", "r");
+	//FILE *ptr6 = fopen("6.ins", "r");
+	//FILE *ptr7 = fopen("7.ins", "r");
+
 	char line[50];
-	fgets(line, 50, ptr);
+
+	FILE *a[8];
+	int i = 0;
+	for(i =0; i<8; i++){
+		char filename[100];
+		//printf("%s", "buradayim");
+		sprintf(filename, "%d.ins", i);
+		a[i] = fopen(filename, "r");
+	}
+	for(i = 0; i<8; i++){
+		//fprintf(a[i]);
+	}
+	
+	int processCounter = 0;
+	//while(processCounter < numProcess){
+		
+	//}
+
+	fgets(line, 50, a[1]);
 	int sayac = 0;
 	int sirasayac = 0;
 	if(strcmp(modelName, "FIRSTFIT")==0) {
 	   while(1){
-		if(fgets(line, 50, ptr)== NULL) break;
+		if(fgets(line, 50, a[1])== NULL) break;
 		char tempMethod[50];
 		char tempName[50];
 		int tempSize = 0;
