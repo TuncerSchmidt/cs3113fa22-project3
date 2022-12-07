@@ -213,7 +213,7 @@ int FINDA(){
 		int tempSize = 0;
 	    	
 	     	sscanf(line, "%s %s %d",  tempMethod, tempName, &tempSize);
-		printf("%s%s%d", tempName, tempName, tempSize);
+		printf("%s%s%d", tempMethod, tempName, tempSize);
 		Sayitutucu = tempSize;
 		strcpy(NameTutucu, tempName);
 	//	printf("%s", tempName);
