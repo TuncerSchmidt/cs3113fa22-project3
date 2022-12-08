@@ -28,7 +28,9 @@ and I don't know how to solve it.
  number of quantum our program
 will be slower and it is very likely that we are going to get more Fault, I mean deadlocks. 
 Smaller values of quantum will cause more switches so it will be make
-our code slower. When code reads more line from same file, it is very likely that 
+our code slower. 
+
+When code reads more line from same file, it is very likely that 
 instruction will fail and at the end it will lead to deadlock 
 
 # LIST OF ANY BUGS
