@@ -24,11 +24,11 @@ and I don't know how to solve it.
 
 
 #CHOOSING THE QUANTUM
-# Changing the number of quantum can make our code faster or slower according to implementation. For example when we increase number of quantum our program
+ Changing the number of quantum can make our code faster or slower according to implementation. For example when we increase number of quantum our program
 will be slower and it is very likely that we are going to get more Fault, I mean deadlocks. Smaller values of quantum will cause more switches so it will be make
 our code slower. When code reads more line from same file, it is very likely that instruction will fail and at the end it will lead to deadlock 
 
-
+#LIST OF ANY BUGS
 One of the biggest problem that I had was input file because I dont have correct test files I mean all of them. So it is hard to understand what is wrong with my code. In addition to that while sending my code through gradescope, for random tests I got alloc ... failed output. I am guessing that that I did not write my code efficiently even thought I used calloc and malloc. This is the biggest problem that I have had.
 I could not complete the project. I believe that testfile should be given to us. Otherwise it is really difficult to guess what is the problem. Because of that problem, I could not complete the project.
 
